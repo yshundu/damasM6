@@ -19,6 +19,7 @@ public class DamasRecuperar extends javax.swing.JFrame {
     /**
      * Creates new form DamasRecuperar
      */
+    //Inicialitzem variables
     static Session session;
     static List resultList;
     static int i;
@@ -46,14 +47,14 @@ public class DamasRecuperar extends javax.swing.JFrame {
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {"X", null, "X", null, "X", null, "X", null},
+                {null, "X", null, "X", null, "X", null, "X"},
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {"O", null, "O", null, "O", null, "O", null},
+                {null, "O", null, "O", null, "O", null, "O"}
             },
             new String [] {
                 "Columna 1", "Columna 2", "Columna 3", "Columna 4", "Columna 5", "Columna 6", "Columna 7", "Columna 8"
@@ -141,10 +142,33 @@ public class DamasRecuperar extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void CarregaMoviment() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            session.beginTransaction();
+            //La query que utilitza per trobar el moviment
+            Query q = session.createQuery
+        ("from Movimiento movimiento where movimiento.partida.idPartida"
+                + " = (select max(mov.partida.idPartida) from Movimiento mov)");
+            resultList = q.list();
+            session.getTransaction().commit();
+        } catch (HibernateException he) {
+            he.printStackTrace();
+        }
     }
 
     private void ClickRepetir(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //Comprovem si hem acabat totes les moviments
+        if (i < resultList.size()){
+            Movimiento movimiento = (Movimiento) resultList.get(i);
+            //Asignem cada moviment segons la base de dades
+            table.setValueAt(table.getValueAt(movimiento.getFilaOrigen(),
+                    movimiento.getColumnaOrigen()), movimiento.getFilaDesti(),
+                    movimiento.getColumnaDesti());
+            table.setValueAt(null, movimiento.getFilaOrigen(),
+                    movimiento.getColumnaOrigen());  
+        }else {
+            PartidaNova pNova = new PartidaNova();
+            pNova.setVisible(true);
+            dispose();
+        }
     }
 }

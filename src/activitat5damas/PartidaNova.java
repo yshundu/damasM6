@@ -82,7 +82,9 @@ public class PartidaNova extends javax.swing.JFrame {
     }//GEN-LAST:event_bNovaPartidaActionPerformed
 
     private void bUltimaPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bUltimaPartidaActionPerformed
-        // TODO add your handling code here:
+        DamasRecuperar recuperar = new DamasRecuperar();
+        recuperar.setVisible(true);
+        dispose();
     }//GEN-LAST:event_bUltimaPartidaActionPerformed
 
     /**
