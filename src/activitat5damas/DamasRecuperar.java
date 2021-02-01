@@ -15,12 +15,18 @@ import org.hibernate.Session;
  * @author Alumne
  */
 public class DamasRecuperar extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form DamasRecuperar
      */
+    static Session session;
+    static List resultList;
+    static int i;
+    
     public DamasRecuperar() {
         initComponents();
+        session = NewHibernateUtil.getSessionFactory().openSession();
+        CarregaMoviment();
     }
 
     /**
@@ -89,7 +95,8 @@ public class DamasRecuperar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bRecuperarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRecuperarActionPerformed
-        // TODO add your handling code here:
+        ClickRepetir(i);
+        i++;
     }//GEN-LAST:event_bRecuperarActionPerformed
 
     /**
@@ -132,4 +139,12 @@ public class DamasRecuperar extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
+
+    private void CarregaMoviment() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void ClickRepetir(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
