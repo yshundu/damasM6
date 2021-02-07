@@ -6,7 +6,6 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -17,13 +16,12 @@ import javax.persistence.Table;
 @Table(name = "partida", schema="damas")
 public class Partida  implements java.io.Serializable {
 
-    @Id @GeneratedValue
+    @Id
     @Column(name = "idPartida")
      private Integer idPartida;
     
     @Column(name = "ganador")
      private String ganador;
-    
      private Set movimientos = new HashSet(0);
 
     public Partida() {

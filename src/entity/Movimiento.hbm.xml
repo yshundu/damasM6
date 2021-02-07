@@ -23,5 +23,11 @@
         <property name="filaDesti" type="int">
             <column name="filaDesti" not-null="true" />
         </property>
+        <set name="partidas" table="partida" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idMoviment" not-null="true" />
+            </key>
+            <one-to-many class="entity.Partida" />
+        </set>
     </class>
 </hibernate-mapping>
