@@ -104,7 +104,7 @@ public final class tabla extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bSortirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSortirActionPerformed
-        PartidaNova pNova = new PartidaNova();
+        Damas_menu pNova = new Damas_menu();
         pNova.setVisible(true);
         dispose();
     }//GEN-LAST:event_bSortirActionPerformed
@@ -287,7 +287,7 @@ public final class tabla extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Les dames O han guanyat! \n", 
                     "GAME OVER", 
                 JOptionPane.PLAIN_MESSAGE);
-            PartidaNova partidaNova = new PartidaNova();
+            Damas_menu partidaNova = new Damas_menu();
             partidaNova.setVisible(true);
             dispose();
             partidaHibernate("O");
@@ -295,7 +295,7 @@ public final class tabla extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Les dames X han guanyat!\n", 
                     "GAME OVER", 
                 JOptionPane.PLAIN_MESSAGE);
-            PartidaNova partidaNova = new PartidaNova();
+            Damas_menu partidaNova = new Damas_menu();
             partidaNova.setVisible(true);
             dispose();
             partidaHibernate("X");
@@ -308,7 +308,7 @@ public final class tabla extends javax.swing.JFrame {
                     "GAME OVER", 
                 JOptionPane.PLAIN_MESSAGE);
             partidaHibernate("O");
-            PartidaNova partidaNova = new PartidaNova();
+            Damas_menu partidaNova = new Damas_menu();
             partidaNova.setVisible(true);
             dispose();
         } else if (esX(fila, columna) && contadorO == 0){
@@ -316,7 +316,7 @@ public final class tabla extends javax.swing.JFrame {
                     "GAME OVER", 
                 JOptionPane.PLAIN_MESSAGE);
             partidaHibernate("X");
-            PartidaNova partidaNova = new PartidaNova();
+            Damas_menu partidaNova = new Damas_menu();
             partidaNova.setVisible(true);
             dispose();
         }

@@ -161,12 +161,12 @@ public class DamasRecuperar extends javax.swing.JFrame {
             Movimiento movimiento = (Movimiento) resultList.get(i);
             //Asignem cada moviment segons la base de dades
             table.setValueAt(table.getValueAt(movimiento.getFilaOrigen(),
-                    movimiento.getColumnaOrigen()), movimiento.getFilaDesti(),
-                    movimiento.getColumnaDesti());
+                    movimiento.getColumnaOrigen()), movimiento.getFilaDestino(),
+                    movimiento.getColumnaDestino());
             table.setValueAt(null, movimiento.getFilaOrigen(),
                     movimiento.getColumnaOrigen());  
         }else {
-            PartidaNova pNova = new PartidaNova();
+            Damas_menu pNova = new Damas_menu();
             pNova.setVisible(true);
             dispose();
         }

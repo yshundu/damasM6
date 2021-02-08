@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 28-ene-2021 22:26:54 by Hibernate Tools 4.3.1 -->
+<!-- Generated 28/01/2021 18:11:38 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="entity.Movimiento" table="movimiento" catalog="damas" optimistic-lock="version">
-        <id name="idMoviment" type="java.lang.Integer">
-            <column name="idMoviment" />
+        <id name="idMovimiento" type="java.lang.Integer">
+            <column name="idMovimiento" />
             <generator class="identity" />
         </id>
         <many-to-one name="partida" class="entity.Partida" fetch="select">
@@ -14,20 +14,14 @@
         <property name="columnaOrigen" type="int">
             <column name="columnaOrigen" not-null="true" />
         </property>
-        <property name="columnaDesti" type="int">
-            <column name="columnaDesti" not-null="true" />
+        <property name="columnaDestino" type="int">
+            <column name="columnaDestino" not-null="true" />
         </property>
         <property name="filaOrigen" type="int">
             <column name="filaOrigen" not-null="true" />
         </property>
-        <property name="filaDesti" type="int">
-            <column name="filaDesti" not-null="true" />
+        <property name="filaDestino" type="int">
+            <column name="filaDestino" not-null="true" />
         </property>
-        <set name="partidas" table="partida" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="idMoviment" not-null="true" />
-            </key>
-            <one-to-many class="entity.Partida" />
-        </set>
     </class>
 </hibernate-mapping>
